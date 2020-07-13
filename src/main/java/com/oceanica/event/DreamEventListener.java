@@ -20,7 +20,7 @@ public class DreamEventListener implements EventListener<PlayerWakeUpEvent> {
     @Override
     public void accept(final PlayerWakeUpEvent event) {
         PlayerEntity player = event.getPlayer();
-        DreamState dreamState = PlayerManagement.get(player.getUniqueID()).getDreamState(this.dreamId);
+        DreamState dreamState = PlayerManagement.map.get(player.getUniqueID()).dreamStates.get(this.dreamId);
 
         if (dreamState.eligible && !dreamState.dreamt) {
             handler.accept(player);

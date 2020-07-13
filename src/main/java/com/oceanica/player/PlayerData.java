@@ -1,18 +1,13 @@
 package com.oceanica.player;
 
-import java.util.HashMap;
-
+import com.oceanica.datastructure.HydratingHashMap;
 import com.oceanica.dream.DreamConstants;
 import com.oceanica.dream.DreamState;
 
 public class PlayerData {
-    private HashMap<String, DreamState> dreamStates = new HashMap<String, DreamState>();
+    public final HydratingHashMap<String, DreamState> dreamStates = new HydratingHashMap<String, DreamState>(
+            (id) -> new DreamState(DreamConstants.getById(id).eligibleByDefault));
 
     public PlayerData() {
-    }
-
-    public DreamState getDreamState(String dreamId) {
-        return dreamStates.computeIfAbsent(dreamId,
-                (id) -> new DreamState(DreamConstants.getById(dreamId).eligibleByDefault));
     }
 }

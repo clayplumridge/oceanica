@@ -2,10 +2,9 @@ package com.oceanica.player;
 
 import java.util.*;
 
-public class PlayerManagement {
-    private static HashMap<UUID, PlayerData> playerData = new HashMap<UUID, PlayerData>();
+import com.oceanica.datastructure.HydratingHashMap;
 
-    public static PlayerData get(UUID id) {
-        return playerData.computeIfAbsent(id, (playerId) -> new PlayerData());
-    }
+public class PlayerManagement {
+    public static final HydratingHashMap<UUID, PlayerData> map = new HydratingHashMap<UUID, PlayerData>(
+            (playerId) -> new PlayerData());
 }
