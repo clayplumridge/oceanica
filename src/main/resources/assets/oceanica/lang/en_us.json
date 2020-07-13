@@ -1,6 +1,15 @@
 {
-  "item.oceanica.first-dream-notes": "A fleeting dream",
+  "item.oceanica.first-dream-notes": "A first glimpse",
+  "item.oceanica.first-dream-notes.flavor": "I dreamt of a sunken city...",
+  "item.oceanica.first-dream-notes.body": "A city deep in the abyss, with powerful energies swirling around... If I found it, could I learn to harness them? The dream fades from my memory, but I remember patches.  Deep breaths; icy waters; a compass inlaid with prismarine...",
 
-  "oceanica.first-dream-notes.flavor": "I dreamt of a sunken city...",
-  "oceanica.first-dream-notes.body": "A city deep in the abyss, with powerful energies swirling around... If I found it, could I learn to harness them?\n\nThe dream fades from my memory, but I remember patches.  Deep breaths; icy waters; a compass inlaid with prismarine..."
+  "item.oceanica.find-book-dream-notes": "The sensation of writing",
+  "item.oceanica.find-book-dream-notes.flavor": "I dreamt of the scratching of quills...",
+  "item.oceanica.find-book-dream-notes.body": "A legion quills on a field of parchment, producing a library of knowledge every day. Where is it recorded? How do I access it? Could this book have something to do with it?",
+
+  "book.oceanica.name": "Visions of a Deep Sea",
+  "book.oceanica.landing-text": "The pages are mostly blank, but I can feel my hands aching to move, to write, to fill the blank space with ink. How do I know what to write? Will my dreams tell me more?",
+
+  "book.oceanica.category.dreams.name": "Dreams",
+  "book.oceanica.category.dreams.description": "I see things when I sleep... Could they be clues to greater power?"
 }

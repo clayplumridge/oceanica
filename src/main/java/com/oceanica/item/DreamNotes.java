@@ -28,15 +28,11 @@ public class DreamNotes extends Item {
         tooltip.add(new TranslationTextComponent(this.getFlavor()).applyTextStyle(TextFormatting.GRAY));
     }
 
-    private String getBody() {
-        return this.getResourceString("body");
-    }
-
     private String getFlavor() {
         return this.getResourceString("flavor");
     }
 
     private String getResourceString(String suffix) {
-        return OceanicaMain.MOD_ID + "." + this.id + "." + suffix;
+        return "item." + OceanicaMain.MOD_ID + "." + this.id + "." + suffix;
     }
 }
