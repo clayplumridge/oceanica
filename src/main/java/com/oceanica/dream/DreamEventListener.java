@@ -1,8 +1,8 @@
-package com.oceanica.event;
+package com.oceanica.dream;
 
 import java.util.function.Consumer;
 
-import com.oceanica.dream.DreamState;
+import com.oceanica.event.EventListener;
 import com.oceanica.player.PlayerManagement;
 
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,4 +1,4 @@
-package com.oceanica.event;
+package com.oceanica.dream;
 
 import com.mojang.brigadier.LiteralMessage;
 
