@@ -1,9 +1,11 @@
 package com.oceanica;
 
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
+import com.oceanica.advancement.UseItemTrigger;
 import com.oceanica.event.EventRegistration;
 import com.oceanica.item.ItemRegistration;
 
@@ -20,5 +22,8 @@ public class OceanicaMain {
 
         // Attach registries
         ItemRegistration.AddRegister(modEventBus);
+
+        // Attach Advancement Triggers
+        CriteriaTriggers.register(UseItemTrigger.INSTANCE);
     }
 }

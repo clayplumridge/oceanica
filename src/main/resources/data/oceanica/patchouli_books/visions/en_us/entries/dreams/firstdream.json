@@ -3,6 +3,8 @@
   "category": "dreams",
   "icon": "minecraft:writable_book",
   "sortnum": 1000,
+  "advancement": "oceanica:main/firstdreamuse",
+  "secret": "true",
   "pages": [
     {
       "type": "text",
