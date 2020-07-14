@@ -39,6 +39,8 @@ public class DreamNotes extends Item {
             ServerPlayerEntity player = (ServerPlayerEntity) playerIn;
             UseItemTrigger.INSTANCE.trigger(player, stack, player.getServerWorld(), player.getPosX(), player.getPosY(),
                     player.getPosZ());
+
+            // TODO: display note text
         }
 
         return new ActionResult<>(ActionResultType.SUCCESS, stack);

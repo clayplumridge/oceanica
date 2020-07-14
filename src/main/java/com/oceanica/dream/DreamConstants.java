@@ -4,10 +4,12 @@ import java.util.HashMap;
 
 public class DreamConstants {
     public static final DreamConstants FirstDream = new DreamConstants("first-dream", true);
+    public static final DreamConstants FoundBookDream = new DreamConstants("found-book");
 
     private static final HashMap<String, DreamConstants> dreamConstantsById = new HashMap<String, DreamConstants>();
     static {
         dreamConstantsById.put(FirstDream.id, FirstDream);
+        dreamConstantsById.put(FoundBookDream.id, FoundBookDream);
     }
 
     public static DreamConstants getById(String id) {
