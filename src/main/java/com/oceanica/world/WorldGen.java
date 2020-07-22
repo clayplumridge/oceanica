@@ -36,7 +36,7 @@ public class WorldGen {
                 // Adds the temple as an ocean structure
                 biome.addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES,
                         TEMPLE.withConfiguration(new TempleFeatureConfig())
-                                .withPlacement(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(4))));
+                                .withPlacement(Placement.CHANCE_TOP_SOLID_HEIGHTMAP.configure(new ChanceConfig(20))));
             }
         }
     }
