@@ -3,6 +3,7 @@ package com.oceanica.world.structure;
 import java.util.Random;
 import java.util.function.Function;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.Dynamic;
 import com.oceanica.OceanicaMain;
 import com.oceanica.patchouli.PatchouliUtils;
@@ -57,6 +58,20 @@ public class TempleFeature extends Feature<TempleFeatureConfig> {
             }
         }
 
+        // Legs
+        BlockPos legCorner = floorCorner.add(0, -1, 0);
+        ImmutableList<BlockPos> startPositions = ImmutableList.of(legCorner, legCorner.add(INTERNAL_LENGTH - 1, 0, 0),
+                legCorner.add(INTERNAL_LENGTH - 1, 0, INTERNAL_WIDTH - 1), legCorner.add(0, 0, INTERNAL_WIDTH - 1));
+
+        for (BlockPos position : startPositions) {
+            BlockState testBlock = worldIn.getBlockState(position);
+            while (testBlock == Blocks.WATER.getDefaultState()) {
+                worldIn.setBlockState(position, prismarineBrick, 2);
+                position = position.add(0, -1, 0);
+                testBlock = worldIn.getBlockState(position);
+            }
+        }
+
         // N/S Wall (5x4x0)
         BlockPos wallCorner = floorCorner.add(-1, 1, 0);
         for (int yMod = 0; yMod < INTERNAL_HEIGHT; yMod++) {
@@ -87,10 +102,11 @@ public class TempleFeature extends Feature<TempleFeatureConfig> {
 
         // Lantern decorations
         BlockPos lanternCorner = floorCorner.add(0, INTERNAL_HEIGHT, 0);
-        worldIn.setBlockState(lanternCorner, lantern, 2);
-        worldIn.setBlockState(lanternCorner.add(INTERNAL_LENGTH - 1, 0, 0), lantern, 2);
-        worldIn.setBlockState(lanternCorner.add(INTERNAL_LENGTH - 1, 0, INTERNAL_WIDTH - 1), lantern, 2);
-        worldIn.setBlockState(lanternCorner.add(0, 0, INTERNAL_WIDTH - 1), lantern, 2);
+        ImmutableList
+                .of(lanternCorner, lanternCorner.add(INTERNAL_LENGTH - 1, 0, 0),
+                        lanternCorner.add(INTERNAL_LENGTH - 1, 0, INTERNAL_WIDTH - 1),
+                        lanternCorner.add(0, 0, INTERNAL_WIDTH - 1))
+                .forEach(pos -> worldIn.setBlockState(pos, lantern, 2));
 
         // Lectern decoration (using chest for now)
         BlockPos chestPos = interiorCorner.add(INTERNAL_LENGTH / 2, 0, 0);
