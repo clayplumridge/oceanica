@@ -1,0 +1,18 @@
+{
+  "display": {
+    "icon": {
+      "item": "patchouli:guide_book"
+    },
+    "title": {
+      "translate": "advancement.oceanica:first-dream"
+    },
+    "description": {
+      "translate": "advancement.oceanica:first-dream.desc"
+    }
+  },
+  "criteria": {
+    "dream": {
+      "trigger": "oceanica:dream"
+    }
+  }
+}

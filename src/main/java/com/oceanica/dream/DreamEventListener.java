@@ -1,29 +1,25 @@
 package com.oceanica.dream;
 
-import java.util.function.Consumer;
-
+import com.oceanica.OceanicaMain;
 import com.oceanica.event.EventListener;
-import com.oceanica.player.PlayerManagement;
 
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.entity.player.PlayerWakeUpEvent;
+import net.minecraftforge.fml.network.NetworkRegistry;
+import net.minecraftforge.fml.network.simple.SimpleChannel;
 
 public class DreamEventListener implements EventListener<PlayerWakeUpEvent> {
-    private final String dreamId;
-    private final Consumer<PlayerEntity> handler;
+    private static final String PROTOCOL_VERSION = "1";
+    private static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(
+            new ResourceLocation(OceanicaMain.MOD_ID, "dream"), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals,
+            PROTOCOL_VERSION::equals);
 
-    public DreamEventListener(String dreamId, Consumer<PlayerEntity> handler) {
-        this.dreamId = dreamId;
-        this.handler = handler;
+    public static void registerMessages() {
+        CHANNEL.registerMessage(0, DreamMessage.class, DreamMessage::encode, DreamMessage::new, DreamMessage::receive);
     }
 
     @Override
     public void accept(final PlayerWakeUpEvent event) {
-        PlayerEntity player = event.getPlayer();
-        DreamState dreamState = PlayerManagement.map.get(player.getUniqueID()).dreamStates.get(this.dreamId);
-
-        if (dreamState.eligible && !dreamState.dreamt) {
-            handler.accept(player);
-        }
+        DreamEventListener.CHANNEL.sendToServer(new DreamMessage());
     }
 }

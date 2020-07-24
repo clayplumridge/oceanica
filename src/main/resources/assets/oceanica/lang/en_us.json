@@ -1,6 +1,8 @@
 {
   "advancement.oceanica:first-dream": "A first glimpse",
   "advancement.oceanica:first-dream.desc": "I dreamt of a sunken city...",
+  "advancement.oceanica:find-book-dream": "The sensation of writing",
+  "advancement.oceanica:find-book-dream.desc": "I dreamt of the scratching of quills...",
 
   "item.oceanica.first-dream-notes": "A first glimpse",
   "item.oceanica.first-dream-notes.flavor": "I dreamt of a sunken city...",

@@ -1,8 +1,6 @@
 package com.oceanica.event;
 
-import com.oceanica.dream.DreamConstants;
 import com.oceanica.dream.DreamEventListener;
-import com.oceanica.dream.DreamMessageUtil;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.Event;
@@ -10,9 +8,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 public class EventRegistration {
     public static void RegisterAll() {
-        RegisterOnBaseEventBus(new DreamEventListener(DreamConstants.FirstDream.id, (player) -> {
-            DreamMessageUtil.ShowDreamMessage("What a strange dream I had...", player);
-        }));
+        // Fires whenever a player dreams
+        RegisterOnBaseEventBus(new DreamEventListener());
     }
 
     public static <T extends Event> void RegisterOnBaseEventBus(EventListener<T> listener) {

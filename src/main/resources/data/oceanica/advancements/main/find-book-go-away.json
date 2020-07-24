@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "patchouli:guide_book"
+    },
+    "title": {
+      "translate": "advancement.oceanica:first-dream"
+    },
+    "description": {
+      "translate": "advancement.oceanica:first-dream.desc"
+    }
+  },
+  "parent": "oceanica:main/findbook",
+  "criteria": {
+    "find_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "item": {
+          "item": "patchouli:guide_book",
+          "nbt": {
+            "patchouli:book": "oceanica:visions"
+          }
+        }
+      }
+    }
+  }
+}

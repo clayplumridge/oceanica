@@ -9,7 +9,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.oceanica.advancement.DreamTrigger;
 import com.oceanica.advancement.UseItemTrigger;
+import com.oceanica.dream.DreamEventListener;
 import com.oceanica.event.EventRegistration;
 import com.oceanica.item.ItemRegistration;
 import com.oceanica.world.WorldGen;
@@ -34,10 +36,14 @@ public class OceanicaMain {
 
         // Attach Advancement Triggers
         CriteriaTriggers.register(UseItemTrigger.INSTANCE);
+        CriteriaTriggers.register(DreamTrigger.INSTANCE);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
         // Updates biomes to include features
         WorldGen.addWorldGen();
+
+        // Add all messaging
+        DreamEventListener.registerMessages();
     }
 }
